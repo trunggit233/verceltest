@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartCart - Trang Chủ</title>
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">
+          <span class="logo-smart">Smart</span
+          ><span class="logo-cart">Cart</span>
+        </div>
+
+        <form role="search">
+          <div class="search-bar-main">
+            <div class="search-bar-input">
+              <input
+                type="text"
+                placeholder="Tìm kiếm sản phẩm"
+                id="searchInput"
+              />
+            </div>
+            <button type="button" class="btn-search">🔍</button>
+          </div>
+        </form>
+
+        <div class="header-actions">
+          <div class="auth-links">
+            <a href="./views/auth/register.html">Đăng ký</a> |
+            <a href="./views/auth/login.html">Đăng nhập</a>
+          </div>
+          <div class="cart-icon">🛒</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero-section">
+        <div class="main-banner-container" id="main-banner"></div>
+        <div class="sub-banners-container" id="sub-banners"></div>
+      </section>
+
+      <section class="category-section">
+        <h2 class="section-title">Danh mục</h2>
+        <div class="category-gird" id="category-list"></div>
+      </section>
+
+      <section class="top-search-section">
+        <h2 class="section-title">Tìm kiếm hàng đầu</h2>
+        <div class="product-gird" id="top-search-list"></div>
+      </section>
+
+      <section class="daily-sucggest-section">
+        <h2 class="section-title">Gợi ý hôm nay</h2>
+        <div class="product-gird" id="daily-sucggest-list"></div>
+      </section>
+    </main>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản trị SmartCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/admin/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main-content">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <button class="sidebar-toggle" id="sidebarToggle">≡</button>
+          <h1 class="page-title" id="pageTitle">Tổng quan</h1>
+          <div class="topbar-right">
+            <span class="topbar-time" id="currentTime"></span>
+          </div>
+        </header>
+
+        <!-- DASHBOARD PAGE -->
+        <section class="page active" id="page-dashboard">
+          <!-- STAT CARDS -->
+          <div class="stat-grid">
+            <div class="stat-card stat-blue">
+              <div class="stat-value" id="stat-users">—</div>
+              <div class="stat-label">Người dùng mới</div>
+              <div class="stat-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e3e3e3"
+                >
+                  <path
+                    d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="stat-card stat-green">
+              <div class="stat-value" id="stat-orders">—</div>
+              <div class="stat-label">Đơn hàng</div>
+              <div class="stat-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e3e3e3"
+                >
+                  <path
+                    d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="stat-card stat-amber">
+              <div class="stat-value" id="stat-revenue">—</div>
+              <div class="stat-label">Tổng doanh thu</div>
+              <div class="stat-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e3e3e3"
+                >
+                  <path
+                    d="M441-120v-86q-53-12-91.5-46T293-348l74-30q15 48 44.5 73t77.5 25q41 0 69.5-18.5T587-356q0-35-22-55.5T463-458q-86-27-118-64.5T313-614q0-65 42-101t86-41v-84h80v84q50 8 82.5 36.5T651-650l-74 32q-12-32-34-48t-60-16q-44 0-67 19.5T393-614q0 33 30 52t104 40q69 20 104.5 63.5T667-358q0 71-42 108t-104 46v84h-80Z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="stat-card stat-red">
+              <div class="stat-value" id="stat-products">—</div>
+              <div class="stat-label">Sản phẩm</div>
+              <div class="stat-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e3e3e3"
+                >
+                  <path
+                    d="M200-640v440h560v-440H640v320l-160-80-160 80v-320H200Zm0 520q-33 0-56.5-23.5T120-200v-499q0-14 4.5-27t13.5-24l50-61q11-14 27.5-21.5T250-840h460q18 0 34.5 7.5T772-811l50 61q9 11 13.5 24t4.5 27v499q0 33-23.5 56.5T760-120H200Zm16-600h528l-34-40H250l-34 40Zm184 80v190l80-40 80 40v-190H400Zm-200 0h560-560Z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- CHART -->
+          <div class="section-card">
+            <div class="section-header">
+              <h2 class="section-title">Doanh thu vừa qua</h2>
+              <span class="section-badge">7 ngày gần nhất</span>
+            </div>
+            <div class="chart-area" id="revenueChart">
+              <canvas id="revenueCanvas"></canvas>
+            </div>
+          </div>
+
+          <!-- RECENT ORDERS + TOP PRODUCTS -->
+          <div class="two-col">
+            <div class="section-card">
+              <div class="section-header">
+                <h2 class="section-title">Đơn hàng gần đây</h2>
+                <a
+                  href="/frontend/views/admin/orders.html"
+                  class="section-link"
+                  data-page="orders"
+                  >Xem tất cả</a
+                >
+              </div>
+              <div class="table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Mã đơn</th>
+                      <th>Khách hàng</th>
+                      <th>Tổng tiền</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentOrdersTable">
+                    <tr>
+                      <td colspan="4" class="table-loading">Đang tải...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="section-card">
+              <div class="section-header">
+                <h2 class="section-title">Sản phẩm bán chạy</h2>
+                <a href="#" class="section-link" data-page="products"
+                  >Xem tất cả</a
+                >
+              </div>
+              <div class="table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Sản phẩm</th>
+                      <th>Đã bán</th>
+                      <th>Doanh thu</th>
+                    </tr>
+                  </thead>
+                  <tbody id="topProductsTable">
+                    <tr>
+                      <td colspan="3" class="table-loading">Đang tải...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../../js/components/sidebar.js"></script>
+    <script src="../../js/config.js"></script>
+    <script src="../../js/admin/admin-utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="../../js/admin/dashboard.js"></script>
+    <script>
+      renderSidebar("dashboard");
+    </script>
+  </body>
+</html>

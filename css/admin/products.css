@@ -1,0 +1,270 @@
+/* ============ SECTION TOOLS ============ */
+/* Thanh tìm kiếm + filter bên phải section-header */
+
+:root {
+    --sidebar-bg: #0f172a;
+    --sidebar-width: 220px;
+    --sidebar-text: #94a3b8;
+    --sidebar-text-active: #ffffff;
+    --sidebar-active-bg: rgba(22, 163, 74, 0.15);
+    --sidebar-active-border: #16a34a;
+    --sidebar-hover-bg: rgba(255,255,255,0.05);
+
+    --main-bg: #f1f5f9;
+    --topbar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+
+    --green-primary: #16a34a;
+    --green-light: #dcfce7;
+    --green-text: #166534;
+
+    --blue-primary: #2563eb;
+    --blue-light: #dbeafe;
+    --blue-text: #1e40af;
+
+    --amber-primary: #d97706;
+    --amber-light: #fef3c7;
+    --amber-text: #92400e;
+
+    --red-primary: #dc2626;
+    --red-light: #fee2e2;
+    --red-text: #991b1b;
+
+    --radius: 10px;
+    --radius-sm: 6px;
+    --font: 'Be Vietnam Pro', sans-serif;
+}
+
+.section-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-search {
+    padding: 7px 12px;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-family: var(--font);
+    outline: none;
+    width: 220px;
+    transition: border 0.15s;
+}
+
+.input-search:focus {
+    border-color: var(--green-primary);
+}
+
+.input-select {
+    padding: 7px 12px;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-family: var(--font);
+    outline: none;
+    background: #fff;
+    cursor: pointer;
+}
+
+.input-select:focus {
+    border-color: var(--green-primary);
+}
+
+/* ============ BUTTONS ============ */
+
+.btn-primary {
+    background: var(--green-primary);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-family: var(--font);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-primary:hover { background: var(--green-text);}
+
+.btn-secondary {
+    background: #fff;
+    color: var(--text-secondary);
+    border: 1px solid var(--card-border);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-family: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-secondary:hover { background: var(--main-bg); }
+
+.btn-action {
+    padding: 5px 10px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-family: var(--font);
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.15s;
+}
+
+.btn-action:hover { opacity: 0.8; }
+
+.btn-edit {
+    background: var(--blue-light);
+    color: var(--blue-text);
+}
+
+.btn-delete {
+    background: var(--red-light);
+    color: var(--red-text);
+}
+
+/* ============ MODAL ============ */
+
+.modal-overlay {
+    display: none;          /* ẩn mặc định */
+    position: fixed;
+    inset: 0;               /* top:0 right:0 bottom:0 left:0 */
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Khi JS thêm class active → hiện modal */
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: #fff;
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.modal-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 4px;
+    transition: color 0.15s;
+}
+
+.modal-close:hover { color: var(--text-primary); }
+
+.modal-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--card-border);
+}
+
+/* ============ FORM ============ */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.required { color: var(--red-primary); }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 8px 12px;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-family: var(--font);
+    outline: none;
+    transition: border 0.15s;
+    color: var(--text-primary);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--green-primary);
+}
+
+.form-group textarea { resize: vertical; }
+
+.form-error {
+    font-size: 13px;
+    color: var(--red-primary);
+    min-height: 18px;
+}
+
+/* ============ IMAGE PREVIEW ============ */
+
+.image-preview {
+    margin-top: 8px;
+    width: 120px;
+    height: 120px;
+    border: 1px dashed var(--card-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

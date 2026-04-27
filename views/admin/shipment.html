@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vận chuyển - SmartCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/admin/admin.css">
+    <link rel="stylesheet" href="../../css/admin/shipment.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+
+         <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">≡</button>
+                <h1 class="page-title">Vận chuyển</h1>
+                <div class="topbar-right">
+                    <span class="topbar-time" id="currentTime"></span>
+                </div>
+            </header>
+
+                <div class="page-body">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Thông tin vận chuyển</h2>
+                            <div class="section-tools">
+                                <input type="text" id="searchInput" placeholder="Tìm theo Mã đơn / Mã vận đơn..." class="input-search">
+                                <!-- <button class="btn-action btn-primary" onclick="searchShipments()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button> -->
+                                <select id="statusFilter" class="input-select">
+                                    <option value="">Tất cả trạng thái</option>
+                                    <option value="PENDING">Chờ lấy hàng</option>
+                                    <option value="SHIPPED">Đang giao</option>
+                                    <option value="DELIVERED">Đã giao thành công</option>
+                                    <option value="RETURNED">Hoàn trả</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table">
+
+                        </div>
+                        
+                    
+
+                    <div class="table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Mã Đơn</th>
+                                <th>Đơn vị vận chuyển</th>
+                                <th>Mã Vận Đơn</th>
+                                <th>Trạng thái</th>
+                                <th>Cập nhật cuối</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shipmentsTable">
+                            <tr><td colspan="6" class="table-loading">Đang tải dữ liệu vận chuyển...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!--Modal-->
+    <div class="modal-overlay" id="shipmentModal">
+        <div class="modal">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">Cập nhật đơn hàng <span id="modalOrderId"></span></h2>
+                    <button class="btn-close" onclick="closeShipmentModal()">✕</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Đơn vị vận chuyển (Carrier)</label>
+                            <input type="text" id="inputCarrier" class="input-text" placeholder="VD: GHTK, J&T, VNPost...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mã vận đơn</label>
+                            <input type="text" id="inputTracking" placeholder="Nhập mã do ĐVVC cung cấp...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Trạng thái</label>
+                            <select id="selectShipmentStatus">
+                                <option value="PENDING">Chờ lấy hàng</option>
+                                <option value="SHIPPED">Đã xuất kho / Đang giao</option>
+                                <option value="DELIVERED">Giao thành công</option>
+                                <option value="RETURNED">Chuyển hoàn</option>
+                            </select>
+                        </div>
+                     </div>
+
+                        <div id="formError" class="form-error"></div>
+                 </div>
+
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="btnCancelModal" onclick="closeShipmentModal()">Huỷ</button>
+                    <button class="btn-primary" id="btnSubmitModal" onclick="submitShipmentUpdate()">Lưu thay đổi</button>
+                </div>
+         </div>
+    </div>
+
+    <script src="../../js/components/sidebar.js"></script>
+    <script src="../../js/config.js"></script>
+    <script src="../../js/admin/admin-utils.js"></script>
+    <script src="../../js/admin/shipment.js"></script>
+    <script>
+        // Render sidebar và truyền vào id 'shipments' để nó highlight menu tương ứng
+        renderSidebar('shipment');
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán — Quản trị SmartCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/admin/admin.css">
+    <link rel="stylesheet" href="../../css/admin/payment.css">
+</head>
+<body>
+<div class="admin-layout">
+
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <button class="sidebar-toggle" id="sidebarToggle">≡</button>
+            <h1 class="page-title">Quản lý Thanh toán</h1>
+            <div class="topbar-right">
+                <span class="topbar-time" id="currentTime"></span>
+            </div>
+        </header>
+
+        <div class="page-body">
+
+            <!-- STAT CARDS -->
+            <div class="stat-grid">
+                <div class="stat-card stat-green">
+                    <div class="stat-value" id="stat-total-revenue">—</div>
+                    <div class="stat-label">Tổng doanh thu</div>
+                    <div class="stat-icon">◇</div>
+                </div>
+                <div class="stat-card stat-blue">
+                    <div class="stat-value" id="stat-completed">—</div>
+                    <div class="stat-label">Hoàn thành</div>
+                    <div class="stat-icon">◉</div>
+                </div>
+                <div class="stat-card stat-amber">
+                    <div class="stat-value" id="stat-pending">—</div>
+                    <div class="stat-label">Chờ xử lý</div>
+                    <div class="stat-icon">◈</div>
+                </div>
+                <div class="stat-card stat-red">
+                    <div class="stat-value" id="stat-cancelled">—</div>
+                    <div class="stat-label">Đã huỷ</div>
+                    <div class="stat-icon">✕</div>
+                </div>
+            </div>
+
+            <!-- BẢNG LỊCH SỬ -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Lịch sử giao dịch</h2>
+                    <div class="section-tools">
+                        <select id="filterMethod" class="input-select">
+                            <option value="">Tất cả phương thức</option>
+                            <option value="VNPAY">VNPay</option>
+                            <option value="MOMO">MoMo</option>
+                            <option value="ZALOPAY">ZaloPay</option>
+                            <option value="CASH">Tiền mặt (COD)</option>
+                            <option value="BANK_TRANSFER">Chuyển khoản</option>
+                        </select>
+                        <select id="filterStatus" class="input-select">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="PENDING">Chờ xử lý</option>
+                            <option value="COMPLETED">Hoàn thành</option>
+                            <option value="CANCELLED">Đã huỷ</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Mã GD</th>
+                                <th>Mã đơn</th>
+                                <th>Khách hàng</th>
+                                <th>Số tiền</th>
+                                <th>Phương thức</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày tạo</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentsTable">
+                            <tr><td colspan="8" class="table-loading">Đang tải...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL CẬP NHẬT TRẠNG THÁI -->
+<div class="modal-overlay" id="modalStatus">
+    <div class="modal" style="max-width:400px;">
+        <div class="modal-header">
+            <h2 class="modal-title">Cập nhật thanh toán</h2>
+            <button class="modal-close" id="btnCloseModal">✕</button>
+        </div>
+        <div class="modal-body">
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:12px;">
+                Giao dịch <strong id="modalPaymentId"></strong> — 
+                Đơn hàng <strong id="modalOrderId"></strong>
+            </p>
+            <div class="form-group">
+                <label>Trạng thái mới</label>
+                <select id="selectStatus" class="input-select" style="width:100%;">
+                    <option value="PENDING">Chờ xử lý</option>
+                    <option value="COMPLETED">Hoàn thành</option>
+                    <option value="CANCELLED">Đã huỷ</option>
+                </select>
+            </div>
+            <div id="modalError" class="form-error"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary" id="btnCancelModal">Huỷ</button>
+            <button class="btn-primary" id="btnSubmitModal">Cập nhật</button>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/config.js"></script>
+<script src="../../js/components/sidebar.js"></script>
+<script src="../../js/admin/admin-utils.js"></script>
+<script src="../../js/admin/payment.js"></script>
+<script>
+        renderSidebar('payment');
+    </script>
+</body>
+</html>

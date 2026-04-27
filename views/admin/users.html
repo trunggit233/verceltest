@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Người dùng - Quản trị SmartCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/admin/admin.css">
+</head>
+<body>
+    
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">≡</button>
+                <h1 class="page-title" id="pageTitle">Quản lý người dùng</h1>
+                <div class="topbar-right">
+                    <span class="topbar-time" id="currentTime"></span>
+                </div>
+            </header>
+
+             <div class="page-body">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Danh sách người dùng</h2>
+                    <div class="section-tools">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm người dùng..." class="input-search">
+                        <select id="roleFilter" class="input-select" onchange="loadUsers()">
+                            <option value="ALL">Tất cả users</option>
+                            <option value="ADMIN">Quản trị viên</option>
+                            <option value="CUSTOMER">Khách hàng</option>
+                        </select>
+                    </div>
+                </div>
+
+            <div class="table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên</th>
+                                <th>Email</th>
+                                <th>Vai trò</th>
+                                <th>Ngày tham gia</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable">
+                            <tr><td colspan="6" class="table-loading">Đang tải...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+        </main>
+    </div>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/admin/admin-utils.js"></script>
+    <script src="../../js/components/sidebar.js"></script>
+    <script src="../../js/admin/users.js"></script>
+    <script>
+            renderSidebar('users');
+    </script>
+</body>
+</html>

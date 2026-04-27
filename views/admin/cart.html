@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản trị SmartCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/admin/admin.css" />
+    <link rel="stylesheet" href="../../css/admin/cart.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="sidebar-toggle" id="sidebarToggle">≡</button>
+          <h1 class="page-title" id="pageTitle">Thống kê giỏ hàng</h1>
+          <div class="topbar-right">
+            <span class="topbar-time" id="currentTime"></span>
+          </div>
+        </header>
+
+        <div class="page-body">
+          <div class="dashboard-stats">
+            <div class="stat-card blue">
+              <div class="stat-icon-c">🛒</div>
+              <div class="stat-info">
+                <h3>Giỏ hàng Active (24h)</h3>
+                <p class="stat-number" id="statActive">--</p>
+              </div>
+            </div>
+
+            <div class="stat-card orange">
+              <div class="stat-icon-c">⚠️</div>
+              <div class="stat-info">
+                <h3>Giỏ hàng Bị Bỏ Quên</h3>
+                <p class="stat-number" id="statAbandoned">--</p>
+              </div>
+            </div>
+
+            <div class="stat-card green">
+              <div class="stat-icon-c">📈</div>
+              <div class="stat-info">
+                <h3>Tỉ lệ Chuyển đổi</h3>
+                <p class="stat-number" id="statConversion">--%</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-card" style="margin-top: 30px">
+            <div class="section-header">
+              <h2 class="section-title">
+                🔥 Top 5 Sản Phẩm Nằm Trong Giỏ Nhiều Nhất
+              </h2>
+            </div>
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Xếp hạng</th>
+                    <th>Sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Đang nằm trong (Giỏ)</th>
+                  </tr>
+                </thead>
+                <tbody id="leaderboardTable">
+                  <tr>
+                    <td colspan="4" class="table-loading">
+                      Đang tải dữ liệu...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/admin/admin-utils.js"></script>
+    <script src="../../js/components/sidebar.js"></script>
+    <script src="../../js/admin/cart.js"></script>
+    <script>
+      renderSidebar("cart");
+    </script>
+  </body>
+</html>

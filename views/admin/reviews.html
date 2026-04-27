@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sản phẩm — Quản trị SmartCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css//admin/admin.css" />
+    <link rel="stylesheet" href="../../css/admin/reviews.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="sidebar-toggle" id="sidebarToggle">≡</button>
+          <h1 class="page-title">Quản lý đánh giá</h1>
+          <div class="topbar-right">
+            <span class="topbar-time" id="currentTime"></span>
+          </div>
+        </header>
+
+        <div class="page-body">
+          <div class="dashboard-stats">
+            <div class="stat-card blue">
+              <div class="stat-icon-r">💬</div>
+              <div class="stat-info">
+                <h3>Tổng Đánh Giá</h3>
+                <p class="stat-number" id="statTotal">--</p>
+              </div>
+            </div>
+
+            <div class="stat-card yellow">
+              <div class="stat-icon-r">⭐</div>
+              <div class="stat-info">
+                <h3>Điểm Trung Bình</h3>
+                <p class="stat-number" id="statAverage">-- / 5.0</p>
+              </div>
+            </div>
+
+            <div class="stat-card red">
+              <div class="stat-icon-r">🚨</div>
+              <div class="stat-info">
+                <h3>Cảnh báo (1-2 Sao)</h3>
+                <p class="stat-number" id="statBadReviews">--</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-card" style="margin-top: 30px">
+            <div class="section-header">
+              <h2 class="section-title">Danh sách đánh giá mới nhất</h2>
+              <div class="filter-toolbar">
+                <select
+                  id="filterRating"
+                  class="filter-rating"
+                  onchange="applyFilters()"
+                >
+                  <option value="ALL">🌟 Tất cả số sao</option>
+                  <option value="5">5 Sao</option>
+                  <option value="4">4 Sao</option>
+                  <option value="3">3 Sao</option>
+                  <option value="2">2 Sao</option>
+                  <option value="1">1 Sao</option>
+                </select>
+
+                <select
+                  id="filterStatus"
+                  class="filter-status"
+                  onchange="applyFilters()"
+                >
+                  <option value="ALL">📌 Tất cả trạng thái</option>
+                  <option value="ACTIVE">Đang hiển thị</option>
+                  <option value="HIDDEN">Đã ẩn</option>
+                </select>
+
+                <input
+                  type="text"
+                  id="filterSearch"
+                  placeholder="Gõ tên sản phẩm..."
+                  class="filter-search"
+                  onchange="applyFilters()"
+                />
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Người Đánh Giá</th>
+                    <th>Sản Phẩm</th>
+                    <th>Đánh Giá & Nội Dung</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody id="reviewsTable">
+                  <tr>
+                    <td colspan="5" class="table-loading">
+                      Đang tải dữ liệu...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/components/sidebar.js"></script>
+    <script src="../../js/admin/admin-utils.js"></script>
+    <script src="../../js/admin/reviews.js"></script>
+    <script>
+      renderSidebar("reviews");
+    </script>
+  </body>
+</html>

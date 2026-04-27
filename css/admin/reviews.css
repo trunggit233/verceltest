@@ -1,0 +1,144 @@
+.stat-card.yellow .stat-icon-r {
+  background: #fff8e1;
+  color: #ffb300;
+}
+.stat-card.red .stat-icon-r {
+  background: #ffebee;
+  color: #e53935;
+}
+
+/* Thiết kế cho ngôi sao*/
+.stars {
+  color: #ffb300;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+/* Nội dung bình luận */
+.review-comment {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 5px;
+  font-style: italic;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+/* Nhãn trạng thái */
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+.status-badge.active {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.status-badge.hidden {
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* Nút thao tác */
+.btn-toggle-status {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.btn-hide {
+  background: #ffcdd2;
+  color: #c62828;
+}
+.btn-hide:hover {
+  background: #e57373;
+  color: #fff;
+}
+.btn-show {
+  background: #c8e6c9;
+  color: #2e7d32;
+}
+.btn-show:hover {
+  background: #81c784;
+  color: #fff;
+}
+
+/* Chỉnh sửa hiển thị người dùng và sản phẩm trong bảng */
+.user-info,
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+.product-name {
+  font-weight: 500;
+  color: #1976d2;
+}
+
+/* Card Style */
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Search và lọc*/
+.filter-toolbar {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.filter-rating {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.filter-status {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.filter-search {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.BtnFilters {
+  padding: 8px 20px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.reset-filters {
+  padding: 8px 20px;
+  background: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+}

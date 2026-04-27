@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>Đang đăng nhập...</title></head>
+<body>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token');
+        const user = params.get('user');
+
+        if (token && user) {
+           try {
+            const parsedUser = JSON.parse(decodeURIComponent(user));
+
+            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(parsedUser));
+
+            const adminRoles = ['ADMIN'];
+
+            if (adminRoles.includes(parsedUser.role)) {
+                window.location.href = '/frontend/views/admin/dashboard.html';
+            } else {
+                window.location.href = '/frontend/index.html'
+            }
+           } catch (error) {
+            console.error('Parse user Lỗi:', error);
+            window.location.href = '/frontend/views/auth/login.html?error=invalid_user';
+           }
+        } else {
+            window.location.href = '/frontend/views/auth/login.html?error=google_failed';
+        }
+    </script>
+</body>
+</html>
