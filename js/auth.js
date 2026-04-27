@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (user.role === "ADMIN") {
             window.location.href = "/views/admin/dashboard.html";
           } else {
-            window.location.href = "index.html";
+            window.location.href = "/index.html";
           }
         } else {
           errorMsg.style.display = "block";
