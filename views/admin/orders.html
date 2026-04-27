@@ -1,149 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đơn hàng — Quản trị SmartCart</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/admin/admin.css">
-</head>
-<body>
-<div class="admin-layout">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/admin/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="sidebar" id="sidebar"></aside>
 
-    <aside class="sidebar" id="sidebar"></aside>
-
-    <main class="main-content">
+      <main class="main-content">
         <header class="topbar">
-                <button class="sidebar-toggle" id="sidebarToggle">≡</button>
-                <h1 class="page-title" id="pageTitle">Quản lý đơn hàng</h1>
-                <div class="topbar-right">
-                    <span class="topbar-time" id="currentTime"></span>
-                </div>
+          <button class="sidebar-toggle" id="sidebarToggle">≡</button>
+          <h1 class="page-title" id="pageTitle">Quản lý đơn hàng</h1>
+          <div class="topbar-right">
+            <span class="topbar-time" id="currentTime"></span>
+          </div>
         </header>
 
         <div class="page-body">
+          <!-- STAT CARDS -->
+          <div class="stat-grid">
+            <div class="stat-card stat-amber">
+              <div class="stat-value" id="stat-pending">—</div>
+              <div class="stat-label">Chờ xử lý</div>
+              <div class="stat-icon"></div>
+            </div>
+            <div class="stat-card stat-blue">
+              <div class="stat-value" id="stat-processing">—</div>
+              <div class="stat-label">Đang xử lý</div>
+              <div class="stat-icon"></div>
+            </div>
+            <div class="stat-card stat-green">
+              <div class="stat-value" id="stat-delivered">—</div>
+              <div class="stat-label">Đã giao</div>
+              <div class="stat-icon"></div>
+            </div>
+            <div class="stat-card stat-red">
+              <div class="stat-value" id="stat-cancelled">—</div>
+              <div class="stat-label">Đã huỷ</div>
+              <div class="stat-icon"></div>
+            </div>
+            <div class="stat-card stat-amber">
+              <div class="stat-value" id="stat-returned">—</div>
+              <div class="stat-label">Hoàn hàng</div>
+              <div class="stat-icon"></div>
+            </div>
+          </div>
 
-            <!-- STAT CARDS -->
-            <div class="stat-grid">
-                <div class="stat-card stat-amber">
-                    <div class="stat-value" id="stat-pending">—</div>
-                    <div class="stat-label">Chờ xử lý</div>
-                    <div class="stat-icon"></div>
-                </div>
-                <div class="stat-card stat-blue">
-                    <div class="stat-value" id="stat-processing">—</div>
-                    <div class="stat-label">Đang xử lý</div>
-                    <div class="stat-icon"></div>
-                </div>
-                <div class="stat-card stat-green">
-                    <div class="stat-value" id="stat-delivered">—</div>
-                    <div class="stat-label">Đã giao</div>
-                    <div class="stat-icon"></div>
-                </div>
-                <div class="stat-card stat-red">
-                    <div class="stat-value" id="stat-cancelled">—</div>
-                    <div class="stat-label">Đã huỷ</div>
-                    <div class="stat-icon"></div>
-                </div>
-                <div class="stat-card stat-amber">
-                    <div class="stat-value" id="stat-returned">—</div>
-                    <div class="stat-label">Hoàn hàng</div>
-                    <div class="stat-icon"></div>
-                </div>
+          <!-- BẢNG ĐƠN HÀNG -->
+          <div class="section-card">
+            <div class="section-header">
+              <h2 class="section-title">Danh sách đơn hàng</h2>
+              <div class="section-tools">
+                <select id="filterStatus" class="input-select">
+                  <option value="">Tất cả trạng thái</option>
+                  <option value="PENDING">Chờ xử lý</option>
+                  <option value="PROCESSING">Đang xử lý</option>
+                  <option value="SHIPPED">Đang giao</option>
+                  <option value="DELIVERED">Đã giao</option>
+                  <option value="CANCELLED">Đã huỷ</option>
+                  <option value="RETURNED">Hoàn hàng</option>
+                </select>
+              </div>
             </div>
 
-            <!-- BẢNG ĐƠN HÀNG -->
-            <div class="section-card">
-                <div class="section-header">
-                    <h2 class="section-title">Danh sách đơn hàng</h2>
-                    <div class="section-tools">
-                        <select id="filterStatus" class="input-select">
-                            <option value="">Tất cả trạng thái</option>
-                            <option value="PENDING">Chờ xử lý</option>
-                            <option value="PROCESSING">Đang xử lý</option>
-                            <option value="SHIPPED">Đang giao</option>
-                            <option value="DELIVERED">Đã giao</option>
-                            <option value="CANCELLED">Đã huỷ</option>
-                            <option value="RETURNED">Hoàn hàng</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="table-wrap">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>Mã đơn</th>
-                                <th>Khách hàng</th>
-                                <th>Số sản phẩm</th>
-                                <th>Tổng tiền</th>
-                                <th>Trạng thái</th>
-                                <th>Ngày đặt</th>
-                                <th>Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ordersTable">
-                            <tr><td colspan="7" class="table-loading">Đang tải...</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Mã đơn</th>
+                    <th>Khách hàng</th>
+                    <th>Số sản phẩm</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày đặt</th>
+                    <th>Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTable">
+                  <tr>
+                    <td colspan="7" class="table-loading">Đang tải...</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
+          </div>
         </div>
-    </main>
-</div>
+      </main>
+    </div>
 
-<!-- MODAL CẬP NHẬT TRẠNG THÁI -->
-<div class="modal-overlay" id="modalStatus">
-    <div class="modal" style="max-width:420px;">
+    <!-- MODAL CẬP NHẬT TRẠNG THÁI -->
+    <div class="modal-overlay" id="modalStatus">
+      <div class="modal" style="max-width: 420px">
         <div class="modal-header">
-            <h2 class="modal-title">Cập nhật trạng thái</h2>
-            <button class="modal-close" id="btnCloseStatus">✕</button>
+          <h2 class="modal-title">Cập nhật trạng thái</h2>
+          <button class="modal-close" id="btnCloseStatus">✕</button>
         </div>
         <div class="modal-body">
-            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:8px;">
-                Đơn hàng <strong id="statusOrderId"></strong>
-            </p>
-            <div class="form-group">
-                <label>Trạng thái mới</label>
-                <select id="selectStatus" class="input-select" style="width:100%;">
-                    <option value="PENDING">Chờ xử lý</option>
-                    <option value="PROCESSING">Đang xử lý</option>
-                    <option value="SHIPPED">Đang giao</option>
-                    <option value="DELIVERED">Đã giao</option>
-                    <option value="CANCELLED">Đã huỷ</option>
-                    <option value="RETURNED">Hoàn hàng</option>
-                </select>
-            </div>
-            <div id="statusError" class="form-error"></div>
+          <p
+            style="
+              font-size: 13px;
+              color: var(--text-secondary);
+              margin-bottom: 8px;
+            "
+          >
+            Đơn hàng <strong id="statusOrderId"></strong>
+          </p>
+          <div class="form-group">
+            <label>Trạng thái mới</label>
+            <select id="selectStatus" class="input-select" style="width: 100%">
+              <option value="PENDING">Chờ xử lý</option>
+              <option value="PROCESSING">Đang xử lý</option>
+              <option value="SHIPPED">Đang giao</option>
+              <option value="DELIVERED">Đã giao</option>
+              <option value="CANCELLED">Đã huỷ</option>
+              <option value="RETURNED">Hoàn hàng</option>
+            </select>
+          </div>
+          <div id="statusError" class="form-error"></div>
         </div>
         <div class="modal-footer">
-            <button class="btn-secondary" id="btnCancelStatus">Huỷ</button>
-            <button class="btn-primary" id="btnSubmitStatus">Cập nhật</button>
+          <button class="btn-secondary" id="btnCancelStatus">Huỷ</button>
+          <button class="btn-primary" id="btnSubmitStatus">Cập nhật</button>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- MODAL CHI TIẾT ĐƠN HÀNG -->
-<div class="modal-overlay" id="modalDetail">
-    <div class="modal" style="max-width:640px;">
+    <!-- MODAL CHI TIẾT ĐƠN HÀNG -->
+    <div class="modal-overlay" id="modalDetail">
+      <div class="modal" style="max-width: 640px">
         <div class="modal-header">
-            <h2 class="modal-title">Chi tiết đơn hàng <span id="detailOrderId"></span></h2>
-            <button class="modal-close" id="btnCloseDetail">✕</button>
+          <h2 class="modal-title">
+            Chi tiết đơn hàng <span id="detailOrderId"></span>
+          </h2>
+          <button class="modal-close" id="btnCloseDetail">✕</button>
         </div>
         <div class="modal-body" id="detailContent">
-            <p class="table-loading">Đang tải...</p>
+          <p class="table-loading">Đang tải...</p>
         </div>
+      </div>
     </div>
-</div>
 
-<script src="../../js/config.js"></script>
-<script src="../../js/components/sidebar.js"></script>
-<script src="../../js/admin/admin-utils.js"></script>
-<script src="../../js/admin/orders.js"></script>
-<script>
-        renderSidebar('orders');
+    <script src="/js/config.js"></script>
+    <script src="/js/components/sidebar.js"></script>
+    <script src="/js/admin/admin-utils.js"></script>
+    <script src="/js/admin/orders.js"></script>
+    <script>
+      renderSidebar("orders");
     </script>
-</body>
+  </body>
 </html>

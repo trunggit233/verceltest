@@ -1,183 +1,190 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  font-family: "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f0f2f5;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  background-color: #f0f2f5;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 
-    background-image: url("/frontend/assets/nenlogin.png"); /* đường dẫn ảnh */
-    background-size: cover;       /* phủ full màn hình */
-    background-position: center;  /* căn giữa */
-    background-repeat: no-repeat; /* không lặp */
+  background-image: url("/assets/nenlogin.png"); /* đường dẫn ảnh */
+  background-size: cover; /* phủ full màn hình */
+  background-position: center; /* căn giữa */
+  background-repeat: no-repeat; /* không lặp */
 }
 
 .auth-card {
-    width: 380px; /* Quay về kích thước gọn gàng */
-    padding: 25px 35px;
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    color: white;
-    
-    /* Xóa max-height và overflow để không còn thanh cuộn */
-    max-height: none; 
-    overflow-y: visible;
+  width: 380px; /* Quay về kích thước gọn gàng */
+  padding: 25px 35px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: white;
+
+  /* Xóa max-height và overflow để không còn thanh cuộn */
+  max-height: none;
+  overflow-y: visible;
 }
 
-.auth-title { 
-    margin: 0 0 5px;
-    font-size: 22px;
-    text-align: center;
-    color: #1a1a1a;
+.auth-title {
+  margin: 0 0 5px;
+  font-size: 22px;
+  text-align: center;
+  color: #1a1a1a;
 }
 
 .auth-subtitle {
-    margin: 0 0 15px;
-    color: #666;
-    text-align: center;
-    font-size: 13px;
+  margin: 0 0 15px;
+  color: #666;
+  text-align: center;
+  font-size: 13px;
 }
 
-.form-group { margin-bottom: 12px;}
-.form-group label { 
-    display: block;
-    margin-bottom: 4px;
-    font-weight: 500;
-    font-size: 13px;
-    color: #333;
+.form-group {
+  margin-bottom: 12px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #333;
 }
 
 .form-group input {
-    width: 100%;
-    padding: 10px 12px; 
-    margin: 4px 0;
+  width: 100%;
+  padding: 10px 12px;
+  margin: 4px 0;
 
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 
-    background: rgba(255, 255, 255, 0.08);
-    color: black;
-    outline: none;
-    font-size: 13px;
+  background: rgba(255, 255, 255, 0.08);
+  color: black;
+  outline: none;
+  font-size: 13px;
 }
-.form-group input:focus { 
-    border-color: #007bff;
-    outline: none;
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 .btn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
 
-    border: none;
-    border-radius: 12px;
+  border: none;
+  border-radius: 12px;
 
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 .btn-primary {
-    background-color: #007bff;
-    color: white;
+  background-color: #007bff;
+  color: white;
 }
-.btn-primary:hover { 
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4); 
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
 }
 .btn-google {
-    background-color: #ffffff;
-    color:#333;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
 }
 .btn-google:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
- }
-.google-icon { 
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
+}
+.google-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
 }
 
-.divider { 
-    text-align: center;
-    margin: 10px 0;
-    color: #888;
-    position: relative;
+.divider {
+  text-align: center;
+  margin: 10px 0;
+  color: #888;
+  position: relative;
 }
-.divider::before, .divider::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 30%;
-    height: 1px;
-    background: #ddd;
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: #ddd;
 }
-.divider::before { left: 0; }
-.divider::after { right: 0; }
+.divider::before {
+  left: 0;
+}
+.divider::after {
+  right: 0;
+}
 
 .auth-footer {
-    text-align: center;
-    margin-top: 25px;
-    font-size: 13px; 
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
 }
 .auth-footer a {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
 
-.error-message { 
-    background: #fee2e2; 
-    color: #ef4444; 
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 14px;
+.error-message {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
 }
 
 /* Khi màn hình nhỏ hơn 480px */
 @media (max-width: 480px) {
-    body {
-        /* Đảm bảo nền không bị vỡ trên mobile */
-        background-attachment: fixed;
-        padding: 20px; /* Thêm chút đệm để card không chạm khít mép đáy */
-    }
+  body {
+    /* Đảm bảo nền không bị vỡ trên mobile */
+    background-attachment: fixed;
+    padding: 20px; /* Thêm chút đệm để card không chạm khít mép đáy */
+  }
 
-    .auth-card {
-        width: 100%; /* card sẽ chiếm 100% chiều rộng của container */
-        padding: 20px 25px; /* Thu nhỏ padding bên trong để dành chỗ cho nội dung */
-        border-radius: 15px; /* Giảm độ bo góc một chút cho hợp màn hình nhỏ */
-    }
+  .auth-card {
+    width: 100%; /* card sẽ chiếm 100% chiều rộng của container */
+    padding: 20px 25px; /* Thu nhỏ padding bên trong để dành chỗ cho nội dung */
+    border-radius: 15px; /* Giảm độ bo góc một chút cho hợp màn hình nhỏ */
+  }
 
-    .auth-title {
-        font-size: 20px; /* Thu nhỏ tiêu đề một chút */
-    }
+  .auth-title {
+    font-size: 20px; /* Thu nhỏ tiêu đề một chút */
+  }
 
-    .form-group input {
-        padding: 12px; /* Giữ ô input to rõ để dễ chạm bằng ngón tay */
-        font-size: 16px; /* Lưu ý: font-size trên mobile nên từ 16px để tránh trình duyệt tự động phóng to (zoom) khi focus */
-    }
+  .form-group input {
+    padding: 12px; /* Giữ ô input to rõ để dễ chạm bằng ngón tay */
+    font-size: 16px; /* Lưu ý: font-size trên mobile nên từ 16px để tránh trình duyệt tự động phóng to (zoom) khi focus */
+  }
 
-    .btn {
-        padding: 14px; /* Nút bấm trên mobile nên to hơn một chút để dễ bấm*/
-    }
+  .btn {
+    padding: 14px; /* Nút bấm trên mobile nên to hơn một chút để dễ bấm*/
+  }
 }

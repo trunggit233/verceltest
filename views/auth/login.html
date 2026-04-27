@@ -1,51 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng nhập | SmartCart</title>
-    <link rel="stylesheet" href="/frontend/css/auth.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
     <div class="auth-wrapper">
-        <div class="auth-card">
-            <h2 class="auth-title">Chào mừng trở lại!</h2>
-            <p class="auth-subtitle">Vui lòng đăng nhập để tiếp tục</p>
+      <div class="auth-card">
+        <h2 class="auth-title">Chào mừng trở lại!</h2>
+        <p class="auth-subtitle">Vui lòng đăng nhập để tiếp tục</p>
 
-            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        <div
+          id="errorMessage"
+          class="error-message"
+          style="display: none"
+        ></div>
 
-            
-            
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="email" id="email" placeholder="Nhập email của bạn" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" placeholder="*******" required>
-                </div>
-                
-                <button type="submit" class="btn btn-primary" id="loginBtn">Đăng nhập</button>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="Email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Nhập email của bạn"
+              required
+            />
+          </div>
 
-                <div class="divider">
-                    <span>Hoặc</span>
-                </div>
+          <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="*******"
+              required
+            />
+          </div>
 
-                <a href="http://localhost:6060/api/auth/google" class="btn btn-google" id="loginGoogle">
-                    <img src="/frontend/assets/Google_Favicon_2025.svg.png" alt="Google" class="google-icon">
-                    Đăng nhập bằng Google
-                </a>
-            </form>
+          <button type="submit" class="btn btn-primary" id="loginBtn">
+            Đăng nhập
+          </button>
 
-            <p class="auth-footer">
-                Chưa có tài khoản? <a href="/frontend/views/auth/register.html">Đăng ký ngay</a>
-            </p>
-        </div>
+          <div class="divider">
+            <span>Hoặc</span>
+          </div>
+
+          <a
+            href="http://localhost:6060/api/auth/google"
+            class="btn btn-google"
+            id="loginGoogle"
+          >
+            <img
+              src="/frontend/assets/Google_Favicon_2025.svg.png"
+              alt="Google"
+              class="google-icon"
+            />
+            Đăng nhập bằng Google
+          </a>
+        </form>
+
+        <p class="auth-footer">
+          Chưa có tài khoản?
+          <a href="/frontend/views/auth/register.html">Đăng ký ngay</a>
+        </p>
+      </div>
     </div>
 
     <script src="/frontend/js/config.js"></script>
     <script src="/frontend/js/auth.js"></script>
-</body>
+  </body>
 </html>

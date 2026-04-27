@@ -1,54 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng ký tài khoản</title>
-    <link rel="stylesheet" href="/frontend/css/auth.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
     <div class="auth-wrapper">
-        <div class="auth-card">
-            <h2 class="auth-title">Đăng ký</h2>
-            <p class="auth-subtitle">Vui lòng đăng ký để tiếp tục</p>
+      <div class="auth-card">
+        <h2 class="auth-title">Đăng ký</h2>
+        <p class="auth-subtitle">Vui lòng đăng ký để tiếp tục</p>
 
-            <form id="registerForm">
-                <div id="errorMessage" class="error-message" style="display: none;"></div>
+        <form id="registerForm">
+          <div
+            id="errorMessage"
+            class="error-message"
+            style="display: none"
+          ></div>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Nhập email của bạn" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" placeholder="*******" required>
-                </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Nhập email của bạn"
+              required
+            />
+          </div>
 
-                <div class="form-group">
-                    <label for="password">Xác nhận mật khẩu</label>
-                    <input type="password" id="confirmPassword" placeholder="*******" required>
-                </div>
-                
-                <button type="submit" class="btn btn-primary" id="registerBtn">Đăng ký</button>
+          <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="*******"
+              required
+            />
+          </div>
 
-                <div class="divider">
-                    <span>Hoặc</span>
-                </div>
+          <div class="form-group">
+            <label for="password">Xác nhận mật khẩu</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="*******"
+              required
+            />
+          </div>
 
-                <a href="http://localhost:6060/api/auth/google" class="btn btn-google">
-                    <img src="/frontend/assets/Google_Favicon_2025.svg.png" alt="Google" class="google-icon">
-                    Đăng ký bằng Google
-                </a>
-            </form>
+          <button type="submit" class="btn btn-primary" id="registerBtn">
+            Đăng ký
+          </button>
 
-            <p class="auth-footer">
-                Đã có tài khoản? <a href="/frontend/views/auth/login.html">Đăng nhập ngay</a>
-            </p>
-        </div>
+          <div class="divider">
+            <span>Hoặc</span>
+          </div>
+
+          <a
+            href="http://localhost:6060/api/auth/google"
+            class="btn btn-google"
+          >
+            <img
+              src="/frontend/assets/Google_Favicon_2025.svg.png"
+              alt="Google"
+              class="google-icon"
+            />
+            Đăng ký bằng Google
+          </a>
+        </form>
+
+        <p class="auth-footer">
+          Đã có tài khoản?
+          <a href="/frontend/views/auth/login.html">Đăng nhập ngay</a>
+        </p>
+      </div>
     </div>
 
     <script src="/frontend/js/config.js"></script>
     <script src="/frontend/js/auth.js"></script>
-</body>
+  </body>
 </html>

@@ -69,7 +69,7 @@ function renderSidebar(activePage) {
                     <a href="/admin/featuredProducts.html" class="featured-products">
                     <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></span>
                     Sản phẩm nổi bật</a>
-                    <a href="/frontend/views/admin/banner.html" class="banners ${activePage === "banners" ? "active" : ""}">
+                    <a href="/views/admin/banner.html" class="banners ${activePage === "banners" ? "active" : ""}">
                     <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M720-160v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-600 40q-33 0-56.5-23.5T40-200v-560q0-33 23.5-56.5T120-840h560q33 0 56.5 23.5T760-760v200h-80v-80H120v440h520v80H120Zm0-600h560v-40H120v40Zm0 0v-40 40Z"/></svg></span>
                     Quản lý Banner</a>
                     <a href="/admin/coupons.html" class="coupons">
