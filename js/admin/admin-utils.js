@@ -15,7 +15,7 @@ function checkAdminAuth() {
 
   if (parsedUser.role !== "ADMIN") {
     alert("Bạn không có quyền truy cập!");
-    window.location.href = "/index.html";
+    window.location.href = "index.html";
     return null;
   }
 

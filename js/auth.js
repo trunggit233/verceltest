@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (user.role === "ADMIN") {
             window.location.href = "/views/admin/dashboard.html";
           } else {
-            window.location.href = "/index.html";
+            window.location.href = "index.html";
           }
         } else {
           errorMsg.style.display = "block";
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok && result.success) {
           alert("Đăng ký tài khoản thành công! Vui lòng đăng nhập.");
-          window.location.href = "./login.html";
+          window.location.href = "login.html";
         } else {
           errorMsg.style.display = "block";
           errorMsg.textContent = result.message || "Đăng ký thất bại!";
